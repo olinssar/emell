@@ -1,6 +1,6 @@
-# copyright 2020-22 @Mohamed Rizad
-# Telegram @riz4d
-# Instagram @riz.4d
+# copyright 2023-2024 @Mohamed Rizad ، @UP_UO 
+# Telegram @riz4d , @UP_UO 
+# Instagram @riz.4d , @wfj.x
 from pyrogram import *
 import requests as re
 from config import Config
@@ -11,17 +11,17 @@ import os
 buttons=InlineKeyboardMarkup(
                              [
                              [
-            InlineKeyboardButton('Generate', callback_data='generate'),
-            InlineKeyboardButton('Refresh', callback_data='refresh'),
-            InlineKeyboardButton('Close', callback_data='close')
+            InlineKeyboardButton('انشاء بريد', callback_data='generate'),
+            InlineKeyboardButton('اعادة تحميل, callback_data='refresh'),
+            InlineKeyboardButton('اغلاق', callback_data='close')
                    ] 
                              ])
 
 msg_buttons=InlineKeyboardMarkup(
                              [
                              [
-            InlineKeyboardButton('View message', callback_data='view_msg'),
-            InlineKeyboardButton('Close', callback_data='close')
+            InlineKeyboardButton('عرض الرساله', callback_data='view_msg'),
+            InlineKeyboardButton('اغلاق', callback_data='close')
                    ] 
                              ])
 
@@ -35,8 +35,8 @@ app=Client('Temp-Mail Bot',
 email=''
 @app.on_message(filters.command('start'))
 async def start_msg(client,message):
-    await message.reply("**Hey "+message.from_user.first_name+" !!**\n @EYBCBOT is a free service that allows to generates and receive emails at a temporary address that self-destructed after a certain time elapses.\n\n**__ How It Safe's You??**__\n- Using the temporary mail allows you to completely protect your real mailbox against the loss of personal information. Your temporary e-mail address is completely anonymous. Your details: information about your person and users with whom you communicate, IP-address, e-mail address are protected and completely confidential.\n\nFurther Queris @UP_UO 🌚")
-    await message.reply("**Generate a Email Now❕**",
+    await message.reply("**مرحبا يا "+message.from_user.first_name+" !!**\n @EYBCBOT isهي خدمة مجانية تسمح بإنشاء واستقبال رسائل البريد الإلكتروني في عنوان مؤقت تم تدميره ذاتيًا بعد انقضاء وقت معين.\n\n**__ هل هو آمن??**__\n- يتيح لك استخدام البريد المؤقت حماية صندوق بريدك الحقيقي تمامًا مقابل فقدان المعلومات الشخصية. عنوان البريد الإلكتروني المؤقت الخاص بك مجهول تمامًا. التفاصيل الخاصة بك: معلومات عن شخصك ومستخدميك الذين تتواصل معهم ، و عنوان الايبي ، وعنوان البريد الإلكتروني محمي وسرية تمامًا.\n\nلمعرفة المزيد. @UP_UO 🌚")
+    await message.reply("**قم ب انشاء بريد وهمي الان❕**",
                         reply_markup=buttons)
 @app.on_callback_query()
 async def mailbox(client,message):
@@ -44,14 +44,14 @@ async def mailbox(client,message):
     if response=='generate':
        global email
        email = re.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1").json()[0]
-       await message.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
+       await message.edit_message_text('__**هذا هو بريدك الوهمي: **__`'+str(email)+'`',
                                        reply_markup=buttons)
        print(email)
     elif response=='refresh':
         print(email)
         try:
             if email=='':
-                await message.edit_message_text('Genaerate a email',reply_markup=buttons)
+                await message.edit_message_text('انشاء بريد وهمي',reply_markup=buttons)
             else: 
                 getmsg_endp =  "https://www.1secmail.com/api/v1/?action=getMessages&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:]
                 print(getmsg_endp)
@@ -64,7 +64,7 @@ async def mailbox(client,message):
                 await message.edit_message_text(refreshrply,
                                                 reply_markup=msg_buttons)
         except:
-            await message.answer('No messages were received..\nin your Mailbox '+email)
+            await message.answer('لم يتم استلام اي رساله..\nفي صندوق بريدك '+email)
     elif response=='view_msg':
         msg =re.get("https://www.1secmail.com/api/v1/?action=readMessage&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum).json()
         print(msg)
@@ -91,7 +91,7 @@ async def mailbox(client,message):
             await message.edit_message_text(mailbox_vieww,reply_markup=buttons)
             os.remove(dlattach)
     elif response=='close':
-        await message.edit_message_text('Session Closed✅')
+        await message.edit_message_text('تم الاغلاق بنجاح✅')
 app.run()
 
-# Stay tuned for more : Instagram[@riz.4d]
+
