@@ -21,15 +21,14 @@
         "APP_ID": {
             "description": "Your APP ID from my.telegram.org",
             "value": ""
-        }
-    },
-    "addons": [],
+	   }
 	},
 	"buildpacks": [
-		{
 		{
 			"url": "heroku/python"
 		}
 	]
 }
+
+
 
