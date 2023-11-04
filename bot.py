@@ -3,6 +3,7 @@
 # Instagram @riz.4d
 from pyrogram import *
 import requests as re
+from config import Config
 from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 import wget
 import os 
@@ -26,9 +27,9 @@ msg_buttons=InlineKeyboardMarkup(
 
 
 app=Client('Temp-Mail Bot',
-           api_id=21627756,
-           api_hash="fe77fbf0cae9f7f5ece37659e2466cf1",
-           bot_token="TOKEN"
+   api_id=Config.APP_ID,
+   api_hash=Config.API_HASH,
+   bot_token=Config.TG_BOT_TOKEN,
 )
 
 email=''
