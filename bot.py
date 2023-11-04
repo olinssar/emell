@@ -12,7 +12,7 @@ buttons=InlineKeyboardMarkup(
                              [
                              [
             InlineKeyboardButton('انشاء بريد', callback_data='generate'),
-            InlineKeyboardButton('اعادة تحميل, callback_data='refresh'),
+            InlineKeyboardButton('اعادة تحميل', callback_data='refresh'),
             InlineKeyboardButton('اغلاق', callback_data='close')
                    ] 
                              ])
