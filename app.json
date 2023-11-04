@@ -1,16 +1,14 @@
-{    
-
-"name": "temp mail Bot",
-    "description": "A bot that can generate a fake email.",
-    "logo": "https://telegra.ph/file/29b1fbd85fe347fd9ceca.jpg",
-    "keywords": [
-        "Telegraph",
-        "Uploader",
-        "Telegram Bot",
-        "YouTech Bots"
-    ],
-    "repository": "https://github.com/Source-Ze/temp",
-    "success_url": "https://t.me/UI_XB",
+{
+	"name": "TempMail",
+	"description": "A TeleGramBot to send messages secretly!",
+	"logo": "https://telegra.ph/file/5116db79f852db113875c.jpg",
+	"keywords": [
+		"telegram",
+		"bot",
+		"python",
+		"telethon"
+	],
+	"repository": "https://github.com/Source-Ze/temp",
     "env": {
         "TG_BOT_TOKEN": {
             "description": "Your Telegram Bot Token from @BotFather",
@@ -29,10 +27,8 @@
 	},
 	"buildpacks": [
 		{
-                  "url": "heroku/python"
-	    }
-      ],
-     "stack": "container"
-	{
-  }
+			"url": "heroku/python"
+		}
+	]
+}
 
